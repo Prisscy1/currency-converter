@@ -18,23 +18,32 @@
           <select id="from-currency"></select>
         </div>
 
-        <button id="swap">🔄</button>
+        <button id="swap swapButton">
+          <img
+            src="img/arrows.png"
+            alt=""
+            width="35px"
+            height="35px"
+            style="background-color: white"
+            id="arrow"
+          />
+        </button>
 
         <div class="input-group">
-          <label for="to-currency">To:</label>
+          <label for="to-currency" class="to-currency">To:</label>
           <select id="to-currency"></select>
         </div>
 
         <div class="input-group">
-          <label for="amount">Amount:</label>
+          <label for="amount" class="amount">Amount:</label>
           <input type="number" id="amount" placeholder="Enter amount" />
         </div>
 
         <button id="convert">Convert</button>
-      </div>
 
-      <div class="result-box">
-        <p id="result">Converted amount will appear here</p>
+        <div class="result-box">
+          <p id="result" class="result">Converted amount will appear here</p>
+        </div>
       </div>
     </div>
 
