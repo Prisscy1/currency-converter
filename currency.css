@@ -43,6 +43,7 @@ h1 {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin: 20px 0;
+  min-width: 400px;
 }
 
 .input-group {
@@ -69,6 +70,20 @@ input {
   margin-top: 5px;
 }*/
 
+select option {
+  min-width: max-content; /* Expands width to fit the content */
+  white-space: nowrap; /* Prevents wrapping */
+  color: black; /* Ensures options inside dropdown remain readable */
+  background: white;
+}
+
+select {
+  width: 100%; /* Full width for the main box */
+  /* You can adjust this */
+  overflow: hidden;
+  color: white !important; /* Forces white text */
+}
+
 select,
 input {
   width: 100%;
@@ -78,7 +93,8 @@ input {
   border-radius: 8px;
   font-size: 16px;
   background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: black;
+
   outline: none;
   transition: 0.3s;
   backdrop-filter: blur(10px);
@@ -141,6 +157,11 @@ button:active {
 .amount {
   margin-top: 40px;
   padding-bottom: 10px;
+  color: white;
+}
+
+#amount {
+  color: white;
 }
 
 .result-box {
