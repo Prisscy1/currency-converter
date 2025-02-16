@@ -10,20 +10,7 @@ const fromCurrency = document.getElementById('fromCurrency');
 const toCurrency = document.getElementById('toCurrency');
 const swapButton = document.querySelector('.swapButton');
 
-const countryCodes = {
-  USD: 'us',
-  NGN: 'ng',
-  EUR: 'eu',
-  GBP: 'gb',
-  JPY: 'jp',
-  CAD: 'ca',
-  AUD: 'au',
-  INR: 'in',
-  ZAR: 'za',
-  CNY: 'cn',
-};
-
-// Function to populate dropdowns
+// Function to populate currency dropdowns
 async function populateCurrencyDropdowns() {
   try {
     const response = await fetch(
@@ -42,8 +29,7 @@ async function populateCurrencyDropdowns() {
     data.supported_codes.forEach(([code, name]) => {
       const option1 = document.createElement('option');
       option1.value = code;
-      option1.textContent = `${code} - ${name}`;
-      option1.setAttribute('data-country', code.toLowerCase()); // Store country code for CSS
+      option1.textContent = `${code} - ${name}`; // Show currency code and name
 
       const option2 = option1.cloneNode(true); // Clone for the second dropdown
 
@@ -56,6 +42,11 @@ async function populateCurrencyDropdowns() {
   } catch (error) {
     console.error('Error populating currency dropdowns:', error);
   }
+}
+
+// Function to format numbers with commas
+function formatNumberWithCommas(number) {
+  return new Intl.NumberFormat('en-US').format(number); // Correctly formats numbers with commas
 }
 
 // Convert currency
@@ -83,9 +74,9 @@ convertButton.addEventListener('click', async () => {
     const exchangeRate = data.conversion_rate;
     const convertedAmount = amount * exchangeRate;
 
-    resultDisplay.innerText = `${amount} ${from} = ${convertedAmount.toFixed(
-      2
-    )} ${to}`;
+    resultDisplay.innerText = `${formatNumberWithCommas(
+      amount
+    )} ${from} = ${formatNumberWithCommas(convertedAmount.toFixed(2))} ${to}`;
   } catch (error) {
     resultDisplay.innerText = 'Error fetching exchange rate. Try again.';
     console.error(error);
