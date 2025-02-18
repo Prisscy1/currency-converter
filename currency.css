@@ -1,4 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Inter:wght@400&display=swap');
+/*
+
+----01 TYPOGRAPHY SYSTEM
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT WEIGHT: 
+Default: 400
+500
+600
+Bold:700
+
+HEADER: 2.6rem
+
+LINE HEIGHT:
+Default: 1
+paragraph default: 1.05
+small: 1.06
+medium:3.2
+paragraph default:1.6
+
+LETTER SPACING:
+--0.5px
+--
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-----02 COLORS
+- Primary:
+- Tints:
+
+- Shades:
+
+- Accents:
+- Greys: 
+#555
+ #6f6f6f (lightest grey allowed on #fdf2e9
+
+
+----05 SHADOWS
+ 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075)
+
+----06 BORDER-RADIUS
+
+Default: 15px
+
+----07 WHITESPACE
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600');
 
 /* Classy font for the header */
 
@@ -9,41 +60,51 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  display: flex;
   background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 h1 {
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
-  font-size: 26px;
+  font-size: 2.6rem;
   font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 
-  margin-top: 20px; /* Add space above */
-  margin-bottom: 25px; /* Space below */
+  margin-top: 2rem; /* Add space above */
+  margin-bottom: 2.5rem; /* Space below */
   text-align: center;
 }
 
 .converter-box {
   font-family: 'Poppins', sans-serif;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 30px;
+  border-radius: 1.5rem;
+  padding: 3rem;
   width: 100%;
   text-align: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin: 20px 0;
-  min-width: 400px;
+  min-width: 40rem;
+  max-height: 90vh; /* Prevents it from getting too large */
+  overflow-y: auto; /* Scroll if necessary */
 }
 
 .input-group {
@@ -53,22 +114,14 @@ h1 {
 
 label {
   display: block;
-  font-size: 14px;
+  font-size: 1.6rem;
   color: #ffffff;
   margin-bottom: 5px;
 }
 .to-currency {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: -40px;
 }
-/*
-input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-}*/
 
 select option {
   min-width: max-content; /* Expands width to fit the content */
@@ -81,7 +134,7 @@ select {
   width: 100%; /* Full width for the main box */
   /* You can adjust this */
   overflow: hidden;
-  color: white !important; /* Forces white text */
+  color: white; /* Forces white text */
 }
 
 select,
@@ -91,29 +144,23 @@ input {
 
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1.6rem;
   background: rgba(255, 255, 255, 0.2);
-  color: black;
 
   outline: none;
   transition: 0.3s;
   backdrop-filter: blur(10px);
 }
 
-select::placeholder,
-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
 button {
   background: rgba(255, 255, 255, 0.3);
   border: none;
-  padding: 12px;
+  padding: 1.2rem;
   width: 100%;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 1.8rem;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 1.5rem;
   color: #ffffff;
   transition: 0.3s;
   font-weight: bold;
@@ -135,10 +182,10 @@ button:active {
   justify-content: center;
   align-items: center;
   transition: all 0.6s ease-in-out;
-  width: 5px;
-  height: 5px;
-
-  margin: 40px auto; /* Centers it horizontally */
+  background: none;
+  margin: 15px auto; /* Centers the button horizontally */
+  position: relative;
+  padding-bottom: 3rem;
 }
 
 #arrow {
@@ -155,7 +202,7 @@ button:active {
 }
 
 .amount {
-  margin-top: 40px;
+  margin-top: 4rem;
   padding-bottom: 10px;
   color: white;
 }
@@ -165,21 +212,57 @@ button:active {
 }
 
 .result-box {
-  margin-top: 20px;
-  padding: 15px;
+  margin-top: 2rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
 }
 
 .result {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 @media (max-width: 500px) {
   .converter-box {
-    width: 90%;
-    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    padding: 1.5rem;
   }
+}
+
+h1 {
+  max-height: 90vh; /* Prevents it from getting too large */
+  overflow-y: auto; /* Scroll if necessary */
+}
+
+label,
+select,
+input {
+  font-size: 1.6rem; /* Adjust input text size */
+}
+
+button {
+  font-size: 1.6rem;
+}
+
+#swap {
+  width: 40px; /* Reduce size */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto; /* Centers the button */
+  padding: 20px;
+}
+
+#arrow {
+  width: 30px; /* Reduce arrow size */
+  height: 30px;
+}
+
+h1 {
+  font-size: 20px; /* Adjust this as needed */
+  margin-bottom: 10px; /* Reduce spacing below */
 }
