@@ -28,17 +28,13 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-  overflow-y: auto;
+  min-height: 100dvh;
+  background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+  backdrop-filter: blur(10px);
+  overflow-y: auto; /* Allows scrolling */
 }
 
 h1 {
@@ -58,14 +54,15 @@ h1 {
   font-family: 'Poppins', sans-serif;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
-  padding: 3rem;
-  width: 100%;
+  padding: 2rem;
+  width: min(90%, 40rem); /* Responsive width */
   text-align: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  margin: 20px 0;
-  min-width: 40rem;
+  margin: auto;
+  max-width: 40rem;
+  min-width: 30rem;
   max-height: 90vh; /* Prevents it from getting too large */
   overflow-y: auto; /* Scroll if necessary */
 }
@@ -148,15 +145,14 @@ button:active {
   background: none;
   margin: 15px auto; /* Centers the button horizontally */
   position: relative;
-  padding-bottom: 3rem;
 }
 
 #arrow {
   color: #ffffff;
   border-radius: 10px;
   padding: 5px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   transition: transform 0.6s ease-in-out;
 }
 
@@ -187,45 +183,50 @@ button:active {
   font-weight: bold;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 40rem) {
   .converter-box {
-    width: 100%;
-    max-width: 400px;
-    padding: 1.5rem;
+    width: 90%; /* Allows it to shrink while keeping it responsive */
+
+    margin: auto; /* Centers it properly */
+  }
+
+  h1 {
+    font-size: 20px; /* Adjust as needed */
+    margin-bottom: 10px; /* Reduce spacing */
+    max-height: none; /* Removes unnecessary height restriction */
+    overflow-y: visible; /* No need for scrolling here */
+  }
+
+  label,
+  select,
+  input {
+    font-size: 1.6rem; /* Adjust input text size */
+  }
+
+  button {
+    font-size: 1.6rem;
+  }
+
+  #swap {
+    width: 40px; /* Reduce size */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Reduce margin to move it up */
+    padding: 10px; /* Reduce padding to prevent extra space */
+  }
+
+  #arrow {
+    width: 25px; /* Reduce arrow size */
+    height: 25px;
   }
 }
 
-h1 {
-  max-height: 90vh; /* Prevents it from getting too large */
-  overflow-y: auto; /* Scroll if necessary */
-}
-
-label,
-select,
-input {
-  font-size: 1.6rem; /* Adjust input text size */
-}
-
-button {
-  font-size: 1.6rem;
-}
-
-#swap {
-  width: 40px; /* Reduce size */
-  height: 40px;
+/* Additional Fix for Centering */
+body {
+  height: 100vh; /* Ensures full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px auto; /* Centers the button */
-  padding: 20px;
-}
-
-#arrow {
-  width: 30px; /* Reduce arrow size */
-  height: 30px;
-}
-
-h1 {
-  font-size: 20px; /* Adjust this as needed */
-  margin-bottom: 10px; /* Reduce spacing below */
 }
